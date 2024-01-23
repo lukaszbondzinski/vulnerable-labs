@@ -1,0 +1,8 @@
+<div>
+  <div>
+    <app-profile></app-profile>
+  </div>
+  <div *ngIf="this.tokenService.getCurrentLoggedRoles().includes('ADMIN')">
+    <app-customer-list></app-customer-list>
+  </div>
+</div>

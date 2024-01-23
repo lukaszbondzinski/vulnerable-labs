@@ -1,0 +1,16 @@
+<div>
+<mat-card>
+  <mat-card-title class="title">{{ data.name }} {{ data.surname }}</mat-card-title>
+  <mat-card-content>
+    <div>Pesel: {{data.pesel}}</div>
+    <div>Serial number: {{data.serialNumber}}</div>
+    <div>Address: {{data.address.country}}  {{data.address.street}}/{{data.address.flatNumber}}</div>
+    <p>
+      <a id="documentsTag" [href]="documentsUrl" >External Documents</a>
+    </p>
+  </mat-card-content>
+
+</mat-card>
+</div>
+
+

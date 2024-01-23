@@ -1,0 +1,29 @@
+<div class="container customer-table">
+  <mat-table [dataSource]="customers" class="mat-elevation-z8 ">
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let customer">{{ customer.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="surname">
+      <mat-header-cell *matHeaderCellDef>Surname</mat-header-cell>
+      <mat-cell *matCellDef="let customer">{{ customer.surname }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+      <mat-cell *matCellDef="let customer">
+        <button mat-icon-button color="primary" (click)="showProfile(customer)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteCustomer(customer)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['name', 'surname', 'actions']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['name', 'surname', 'actions']"></mat-row>
+  </mat-table>
+</div>

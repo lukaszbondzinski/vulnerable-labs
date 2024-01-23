@@ -1,0 +1,54 @@
+<div>
+<h1 mat-dialog-title>Edit profile</h1>
+<form [formGroup]="profileForm" *ngIf="customer !== null" class="my-form" mat-dialog-content>
+  <mat-form-field class="full-width">
+    <label>Pesel</label>
+    <input matInput formControlName="pesel">
+    <mat-error *ngIf="profileForm.get('pesel')!.hasError('required')">Field is required</mat-error>
+    <mat-error *ngIf="profileForm.get('pesel')!.hasError('minlength')">Exact 11 characters length</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <label>Serial number</label>
+    <input matInput formControlName="serialNumber">
+    <mat-error *ngIf="profileForm.get('serialNumber')!.hasError('required')">Field is required</mat-error>
+    <mat-error *ngIf="profileForm.get('serialNumber')!.hasError('minlength')">Exact 9 characters length</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <label>Country</label>
+    <input matInput formControlName="country">
+    <mat-error *ngIf="profileForm.get('country')!.hasError('required')">Field is required</mat-error>
+    <mat-error *ngIf="profileForm.get('country')!.hasError('minlength')">At least 4 characters length</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <label>City</label>
+    <input matInput formControlName="city">
+    <mat-error *ngIf="profileForm.get('city')!.hasError('required')">Field is required</mat-error>
+    <mat-error *ngIf="profileForm.get('city')!.hasError('minlength')">At least 4 characters length</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <label>Street</label>
+    <input matInput formControlName="street">
+    <mat-error *ngIf="profileForm.get('street')!.hasError('required')">Field is required</mat-error>
+    <mat-error *ngIf="profileForm.get('street')!.hasError('minlength')">At least 4 characters length</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <label>Flat number</label>
+    <input matInput formControlName="flatNumber">
+    <mat-error *ngIf="profileForm.get('flatNumber')!.hasError('required')">Field is required</mat-error>
+    <mat-error *ngIf="profileForm.get('flatNumber')!.hasError('minlength')">At least 1 characters length</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <label>External Documents</label>
+    <input matInput formControlName="documentsUrl">
+    <mat-error *ngIf="profileForm.get('documentsUrl')!.hasError('pattern')">Enter a valid URL (starting with http:// or https://)</mat-error>
+    <mat-error *ngIf="profileForm.get('documentsUrl')!.hasError('required')">Field is required</mat-error>
+  </mat-form-field>
+</form>
+<button class="btn" mat-dialog-actions mat-raised-button color="primary" type="submit" (click)="submitForm()" [disabled]="profileForm !== null && !profileForm.valid" >Save Changes</button>
+</div>
