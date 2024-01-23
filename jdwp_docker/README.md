@@ -4,3 +4,4 @@
    ```
    vagrant up
    ```
+4. Vulnerable machine should be accessible via IP: 192.168.50.4
